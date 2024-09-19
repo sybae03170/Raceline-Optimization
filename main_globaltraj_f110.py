@@ -152,15 +152,17 @@ if opt_type == 'mintime' \
 # create outputs folder(s)
 os.makedirs(file_paths["module"] + f"/outputs/{MAP_NAME}", exist_ok=True)
 
-TIME = str(datetime.now())
+#TIME = str(datetime.now())
+TIME = str(datetime.now()).replace(":", "-").replace(" ", "_")
 if opt_type == 'mintime':
-    os.makedirs(file_paths["module"] + f"/outputs/{MAP_NAME}/mintime-{TIME}", exist_ok=True)
+    os.makedirs(file_paths["module"] + f"\outputs\{MAP_NAME}\mintime-{TIME}", exist_ok=True)
 
 # assemble export paths
-file_paths["mintime_export"] = os.path.join(file_paths["module"], f"outputs/{MAP_NAME}", f"mintime-{TIME}")
-file_paths["traj_race_export"] = os.path.join(file_paths["module"], f"outputs/{MAP_NAME}", f"traj_race_cl-{TIME}.csv")
+# 바꿈!!!!!!!!!!
+file_paths["mintime_export"] = os.path.join(file_paths["module"], f"outputs\\{MAP_NAME}", f"mintime-{TIME}")
+file_paths["traj_race_export"] = os.path.join(file_paths["module"], f"outputs\\{MAP_NAME}", f"traj_race_cl-{TIME}.csv")
 # file_paths["traj_ltpl_export"] = os.path.join(file_paths["module"], "outputs", "traj_ltpl_cl.csv")
-file_paths["lap_time_mat_export"] = os.path.join(file_paths["module"], f"outputs/{MAP_NAME}", lap_time_mat_opts["file"])
+file_paths["lap_time_mat_export"] = os.path.join(file_paths["module"], f"outputs\\{MAP_NAME}", lap_time_mat_opts["file"])
 
 # ----------------------------------------------------------------------------------------------------------------------
 # IMPORT VEHICLE DEPENDENT PARAMETERS ----------------------------------------------------------------------------------
